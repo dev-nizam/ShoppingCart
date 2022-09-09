@@ -1,8 +1,15 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_cart/home/mystore.dart';
 import 'package:shopping_cart/home/productlist.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+        ChangeNotifierProvider(create: (context) {return Mystore();},
+
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
